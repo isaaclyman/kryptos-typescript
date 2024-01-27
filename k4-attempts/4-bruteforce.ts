@@ -1,6 +1,6 @@
-import { encryptedK4, ratePossibleK4Solution } from "../k4";
 import { allCharCombinations } from "../lib/combinations";
-import { generateAlphabet, standardAlphabet, vigDecrypt } from "../lib/vigenere";
+import { standardAlphabet } from "../lib/vigenere";
+import { attemptVigDecryptAndSkip } from "../lib/vigenere-skip";
 
 // It takes about 17 seconds to test a million combinations on my MacBook.
 // There are 8,031,810,176 possible seven letter words.
@@ -26,46 +26,4 @@ while (attempt = bruteForceGenerator.next().value) {
   }
 
   attemptVigDecryptAndSkip(attempt, 'KRYPTOS');
-}
-
-function attemptVigDecryptAndSkip(key: string, alphabetPrefix: string) {
-  const attempt = vigDecrypt(encryptedK4, key, generateAlphabet(alphabetPrefix));
-  const rating = ratePossibleK4Solution(attempt);
-  
-  const lettersToValidate = ['B','E','R','L'];
-  const locations: number[][] = [];
-  if (rating >= 2) {
-    for (const letter of lettersToValidate) {
-      const letterLocations = attempt.split('').reduce((locs, char, ix) => {
-        if (char === letter) {
-          locs.push(ix);
-        }
-        return locs;
-      }, []);
-      locations.push(letterLocations);
-    }
-  
-    const messageLength = attempt.length;
-  
-    for (const startingPoint of locations[0]) {
-      // Not all transpositions would have a repeated skip solution like K3, but it's worth a shot
-      for (let skipAttempt = 1; skipAttempt < 500; skipAttempt++) {
-        const skipped = (startingPoint + skipAttempt) % messageLength;
-    
-        let candidatesMatched = [];
-        for (const candidates of locations.slice(1)) {
-          if (!candidates.includes(skipped)) {
-            candidatesMatched = [];
-            break;
-          }
-    
-          candidatesMatched.push(skipped);
-        }
-        
-        if (candidatesMatched.length) {
-          console.log({skipAttempt, candidatesMatched});
-        }
-      }
-    }
-  }    
 }

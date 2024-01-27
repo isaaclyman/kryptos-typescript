@@ -1,0 +1,26 @@
+{
+  "name": "kryptos-typescript",
+  "version": "1.0.0",
+  "description": "Annotated TypeScript code for encoding and decoding Kryptos K1-K3",
+  "main": "index.js",
+  "directories": {
+    "example": "examples",
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isaaclyman/kryptos-typescript.git"
+  },
+  "author": "Isaac Lyman",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/isaaclyman/kryptos-typescript/issues"
+  },
+  "homepage": "https://github.com/isaaclyman/kryptos-typescript#readme",
+  "devDependencies": {
+    "@types/node": "^20.11.7"
+  }
+}
