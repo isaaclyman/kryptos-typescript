@@ -19,3 +19,7 @@ export function getCoincidence(text: string): number {
 
   return runningProbability;
 }
+
+export function hasHighCoincidence(text: string): boolean {
+  return getCoincidence(text) > 0.052;
+}
