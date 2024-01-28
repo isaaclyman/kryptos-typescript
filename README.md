@@ -6,17 +6,25 @@ To read a full writeup of the encryption/decryption process, including non-code 
 
 # Environment setup
 
+You need Node v18.x or v20.x.
+
 ```bash
-npm install -g ts-node
+npm install
 ```
 
 # Running code
 
 ```bash
-ts-node k1.ts
+npx ts-node k1.ts
 ```
 
 All top-level `.ts` files and all files in `examples` are directly runnable.
+
+# Running unit tests
+
+```bash
+npm test
+```
 
 # Contributing
 

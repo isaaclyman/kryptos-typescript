@@ -1,6 +1,7 @@
+import { encryptedK4, ratePossibleK4Solution } from "../k4";
 import { allCharCombinations } from "../lib/combinations";
-import { standardAlphabet } from "../lib/vigenere";
-import { attemptVigDecryptAndSkip } from "../lib/vigenere-skip";
+import { skipTest } from "../lib/skip-test";
+import { generateAlphabet, standardAlphabet, vigDecrypt } from "../lib/vigenere";
 
 // It takes about 17 seconds to test a million combinations on my MacBook.
 // There are 8,031,810,176 possible seven letter words.
@@ -26,4 +27,21 @@ while (attempt = bruteForceGenerator.next().value) {
   }
 
   attemptVigDecryptAndSkip(attempt, 'KRYPTOS');
+}
+
+function attemptVigDecryptAndSkip(key: string, alphabetPrefix: string, showCandidates: boolean = false): number {
+  const attempt = vigDecrypt(encryptedK4, key, generateAlphabet(alphabetPrefix));
+  const rating = ratePossibleK4Solution(attempt);
+  
+  if (rating >= 2) {
+    if (showCandidates) {
+      console.log(rating, key);
+      console.log(attempt);
+    }
+
+    skipTest(attempt, 'BERL');
+    skipTest(attempt, 'NORT');
+  }
+  
+  return rating;
 }

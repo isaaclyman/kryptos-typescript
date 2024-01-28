@@ -1,0 +1,12 @@
+export const wordsOfInterest = [
+  'KRYPTOS',
+  'PALIMPSEST',
+  'ABSCISSA',
+  'LUCIDMEMORY',
+  'TISYOURPOSITION',
+  'SHADOWFORCES',
+  'VIRTUALLYINVISIBLE',
+  'DIGETALINTERPRETATU',
+  'RQ',
+  'YR',
+];
