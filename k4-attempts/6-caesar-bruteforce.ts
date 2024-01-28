@@ -8,7 +8,7 @@ console.log('STARTING WORDS', allWords.length);
 
 let counter1 = 0;
 let counter2 = 0;
-for (let key = -26; key <= 26; key++) {
+for (let key = 0; key <= 26; key++) {
   const rating1 = attemptCaesarDecryptAndSkip(key, 'KRYPTOS');
   if (rating1 > 2) {
     console.log(rating1, `CAESAR | ${key}`);
@@ -45,10 +45,11 @@ function attemptCaesarDecryptAndSkip(key: number, alphabetPrefix: string, showCa
 
     const match1 = skipTest(attempt, 'BERL');
     const match2 = skipTest(attempt, 'NORT');
+    const match3 = skipTest(attempt, 'THE');
 
-    if (match1 || match2) {
+    if (match1 || match2 || match3) {
       console.log('KEY', key);
-      console.log(match1, match2);
+      console.log(match1, match2, match3);
     }
   }
   

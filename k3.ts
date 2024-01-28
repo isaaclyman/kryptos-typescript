@@ -4,7 +4,7 @@ import {
   routeDecryptUnarrange,
 } from './lib/columnar-route';
 
-const encrypted =
+const encryptedK3 =
   'ENDYAHROHNLSRHEOCPTEOIBIDYSHNAIA' +
   'CHTNREYULDSLLSLLNOHSNOSMRWXMNETP' +
   'RNGATIHNRARPESLNNELEBLPIIACAEWMT' +
@@ -19,7 +19,7 @@ const encrypted =
 const key = 'KRYPTOS';
 const rectangleSize = 86;
 
-const unreversed = encrypted.split('').reverse().join('');
+const unreversed = encryptedK3.split('').reverse().join('');
 const arrangedToDecrypt = routeDecryptReadIn(unreversed, rectangleSize, key);
 const columnarDecrypted = columnarDecryptLines(arrangedToDecrypt, key);
 const decrypted = routeDecryptUnarrange(
