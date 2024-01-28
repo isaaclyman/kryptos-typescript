@@ -7,7 +7,7 @@ import { encryptedK4 } from '../k4';
 describe('coincidence', () => {
   it('correctly measures the coincidence of a random distribution', () => {
     // The coincidence of the alphabet repeated once is 0.0, for math reasons.
-    // As you repeat the alphabet more times, you approach an asymptote of 1.0.
+    // As you repeat the alphabet more times, you approach an asymptote of 1/26.
     const message = standardAlphabet.repeat(100);
     const cAlpha = getCoincidence(message);
     // Round to three decimal places

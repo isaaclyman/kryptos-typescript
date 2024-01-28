@@ -20,9 +20,9 @@ export function vigEncrypt(message: string, key: string, alphabet: string): stri
     messageIx++;
     // Get the character at that index
     const keyChar = key[keyIx];
-    // Find its "a=1" number
+    // Find its "a=0" number
     const keyNumber = alphabet.indexOf(keyChar);
-    // Find the "a=1" number of the original message character as well
+    // Find the "a=0" number of the original message character as well
     const messageNumber = alphabet.indexOf(messageChar);
     // Add the numbers together, looping around if >26
     const encryptedNumber = (messageNumber + keyNumber) % 26;
