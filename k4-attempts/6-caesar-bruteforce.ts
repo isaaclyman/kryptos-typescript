@@ -31,6 +31,8 @@ for (let key = -26; key <= 26; key++) {
 console.log('TOTAL CANDIDATES (KRYPTOS)', counter1);
 console.log('TOTAL CANDIDATES (STANDARD)', counter2);
 
+// No particularly interesting candidates here
+
 function attemptCaesarDecryptAndSkip(key: number, alphabetPrefix: string, showCandidates: boolean = false): number {
   const attempt = cDecrypt(encryptedK4, key, generateAlphabet(alphabetPrefix));
   const rating = ratePossibleK4Solution(attempt);
@@ -41,8 +43,13 @@ function attemptCaesarDecryptAndSkip(key: number, alphabetPrefix: string, showCa
       console.log(attempt);
     }
 
-    skipTest(attempt, 'BERL');
-    skipTest(attempt, 'NORT');
+    const match1 = skipTest(attempt, 'BERL');
+    const match2 = skipTest(attempt, 'NORT');
+
+    if (match1 || match2) {
+      console.log('KEY', key);
+      console.log(match1, match2);
+    }
   }
   
   return rating;
