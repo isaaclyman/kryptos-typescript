@@ -1,4 +1,9 @@
-export function skipTest(attempt: string, lettersToValidate: string) {
+export interface SkipMatch {
+  skip: number;
+  matched: number[];
+}
+
+export function skipTest(attempt: string, lettersToValidate: string, logMatch = true): SkipMatch | null {
   const attemptChars = attempt.split('');
   const locations: number[][] = [];
 
@@ -17,21 +22,28 @@ export function skipTest(attempt: string, lettersToValidate: string) {
   for (const startingPoint of locations[0]) {
     // Not all transpositions would have a repeated skip solution like K3, but it's worth a shot
     for (let skipAttempt = 1; skipAttempt < (attempt.length + 2); skipAttempt++) {
-      const skipped = (startingPoint + skipAttempt) % messageLength;
-  
-      let candidatesMatched = [];
+      
+      let candidatesMatched: number[] = [];
+      let skipped = startingPoint;
       for (const candidates of locations.slice(1)) {
+        skipped = (skipped + skipAttempt) % messageLength;
         if (!candidates.includes(skipped)) {
           candidatesMatched = [];
           break;
         }
-  
+        
         candidatesMatched.push(skipped);
       }
       
       if (candidatesMatched.length) {
-        console.log({skipAttempt, candidatesMatched});
+        const match: SkipMatch = {skip: skipAttempt, matched: candidatesMatched};
+        if (logMatch) {
+          console.log(match);
+        }
+        return match;
       }
     }
   }
+
+  return null;
 }
