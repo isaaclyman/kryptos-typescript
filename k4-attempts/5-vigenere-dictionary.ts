@@ -44,10 +44,16 @@ function attemptVigDecryptAndSkip(key: string, alphabetPrefix: string, showCandi
       console.log(attempt);
     }
 
-    const match1 = skipTest(attempt, 'BERLINCLOCK');
-    const match2 = skipTest(attempt, 'EASTNORTHEAST');
+    const match1 = skipTest(attempt, 'BERLIN');
+    const match2 = skipTest(attempt, 'EASTNO');
 
     if (match1 || match2) {
+      if (match1 && match1.result.length % match1.skip === 0) {
+        console.log('DUPLICATES LIKELY');
+      }
+      if (match2 && match2.result.length % match2.skip === 0) {
+        console.log('DUPLICATES LIKELY');
+      }
       console.log('KEY', key);
       console.log(match1, match2);
     }

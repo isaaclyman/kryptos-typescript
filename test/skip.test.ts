@@ -5,7 +5,7 @@ import { skipTest } from '../lib/skip';
 describe('skip-test', () => {
   it('matches a simple skip cipher', () => {
     const encrypted = 'OWELETIVAR';
-    const match = skipTest(encrypted, 'ILOVEWATER', false);
+    const match = skipTest(encrypted, 'ILOVEWATER');
     assert.notStrictEqual(match, null);
     assert.strictEqual(match.skip, 7);
   });
@@ -23,7 +23,7 @@ describe('skip-test', () => {
       'LCEIHSITEGOEAOSDDRYDLORITRKLMLEH' +
       'AGTDHARDPNEOHMGFMFEUHEECDMRIPFEI' +
       'MEHNLSSTTRTVDOHW?';
-    const match = skipTest(encrypted, 'PASSAGEDEBRIS', false);
+    const match = skipTest(encrypted, 'PASSAGEDEBRIS');
     assert.notStrictEqual(match, null);
     assert.strictEqual(match.skip, 192);
   });

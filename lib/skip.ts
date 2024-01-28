@@ -4,7 +4,7 @@ export interface SkipMatch {
   result: string;
 }
 
-export function skipTest(attempt: string, lettersToValidate: string, logMatch = true): SkipMatch | null {
+export function skipTest(attempt: string, lettersToValidate: string): SkipMatch | null {
   const attemptChars = attempt.split('');
   const locations: number[][] = [];
 
@@ -37,9 +37,6 @@ export function skipTest(attempt: string, lettersToValidate: string, logMatch = 
       
       if (candidatesMatched.length) {
         const match: SkipMatch = {skip: skipAttempt, matched: candidatesMatched, result: skipDecrypt(attempt, skipAttempt, startingPoint)};
-        if (logMatch) {
-          console.log(match);
-        }
         return match;
       }
     }
