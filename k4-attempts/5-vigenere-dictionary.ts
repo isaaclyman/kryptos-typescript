@@ -1,6 +1,6 @@
 import { encryptedK4, ratePossibleK4Solution } from '../k4';
 import { allWords } from '../lib/dictionary';
-import { skipTest } from '../lib/skip-test';
+import { skipTest } from '../lib/skip';
 import { vigDecrypt, generateAlphabet } from '../lib/vigenere';
 
 console.log('STARTING WORDS', allWords.length);
@@ -44,8 +44,13 @@ function attemptVigDecryptAndSkip(key: string, alphabetPrefix: string, showCandi
       console.log(attempt);
     }
 
-    skipTest(attempt, 'BERL');
-    skipTest(attempt, 'NORT');
+    const match1 = skipTest(attempt, 'BERLINCLOCK');
+    const match2 = skipTest(attempt, 'EASTNORTHEAST');
+
+    if (match1 || match2) {
+      console.log('KEY', key);
+      console.log(match1, match2);
+    }
   }
   
   return rating;

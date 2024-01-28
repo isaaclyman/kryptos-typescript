@@ -1,7 +1,7 @@
 import { encryptedK4, ratePossibleK4Solution } from '../k4';
 import { cDecrypt } from '../lib/caesar';
 import { allWords } from '../lib/dictionary';
-import { skipTest } from '../lib/skip-test';
+import { skipTest } from '../lib/skip';
 import { generateAlphabet } from '../lib/vigenere';
 
 console.log('STARTING WORDS', allWords.length);

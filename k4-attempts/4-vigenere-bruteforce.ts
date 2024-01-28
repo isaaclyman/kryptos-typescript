@@ -1,6 +1,6 @@
 import { encryptedK4, ratePossibleK4Solution } from "../k4";
 import { allCharCombinations } from "../lib/combinations";
-import { skipTest } from "../lib/skip-test";
+import { skipTest } from "../lib/skip";
 import { generateAlphabet, standardAlphabet, vigDecrypt } from "../lib/vigenere";
 
 // It takes about 17 seconds to test a million combinations on my MacBook.
