@@ -1,10 +1,10 @@
 import { encryptedK4, ratePossibleK4Solution } from '../k4';
+import { generateAlphabet, standardAlphabet } from '../lib/alphabet';
 import { getCoincidence } from '../lib/coincidence';
 import {
   addSimpleMathKey,
   subtractSimpleMathKey,
 } from '../lib/math-substitution';
-import { generateAlphabet, standardAlphabet } from '../lib/vigenere';
 
 const k4length = encryptedK4.length;
 

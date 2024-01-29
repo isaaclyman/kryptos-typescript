@@ -1,7 +1,8 @@
 import { encryptedK4 } from '../k4';
+import { generateAlphabet } from '../lib/alphabet';
 import { allWords } from '../lib/dictionary';
 import { validate } from '../lib/validate';
-import { vigDecrypt, generateAlphabet, vigEncrypt } from '../lib/vigenere';
+import { vigDecrypt, vigEncrypt } from '../lib/vigenere';
 
 console.log('STARTING WORDS', allWords.length);
 

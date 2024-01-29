@@ -1,10 +1,9 @@
 import { encryptedK4, ratePossibleK4Solution } from '../k4';
+import { standardAlphabet, generateAlphabet } from '../lib/alphabet';
 import { routedColumnarDecrypt, routedColumnarEncrypt } from '../lib/columnar-route';
 import { columnarDecrypt, columnarEncrypt } from '../lib/columnar-simple';
 import { routeDecrypt, routeEncrypt } from '../lib/route-simple';
 import {
-  generateAlphabet,
-  standardAlphabet,
   vigDecrypt,
   vigEncrypt,
 } from '../lib/vigenere';

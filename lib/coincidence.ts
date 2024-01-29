@@ -3,7 +3,7 @@
 //  like a Vigenere cypher. A value close to 0.067 is the average IC of English, 
 //  thus more likely encrypted using transposition or a mono substitution cipher.
 
-import { standardAlphabet } from "./vigenere";
+import { standardAlphabet } from "./alphabet";
 
 export function getCoincidence(text: string): number {
   const textChars = text.split('');

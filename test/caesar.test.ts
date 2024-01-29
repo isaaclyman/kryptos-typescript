@@ -1,7 +1,7 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert';
 import { cDecrypt, cEncrypt } from '../lib/caesar';
-import { generateAlphabet, standardAlphabet } from '../lib/vigenere';
+import { standardAlphabet, generateAlphabet } from '../lib/alphabet';
 
 describe('caesar', () => {
   it('encrypts ABCDE (standard alphabet)', () => {

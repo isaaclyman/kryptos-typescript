@@ -1,11 +1,10 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert';
 import {
-  generateAlphabet,
-  standardAlphabet,
   vigDecrypt,
   vigEncrypt,
 } from '../lib/vigenere';
+import { generateAlphabet, standardAlphabet } from '../lib/alphabet';
 
 describe('vigenere', () => {
   it('encrypts ILOVEWATER (standard alphabet)', () => {

@@ -1,6 +1,7 @@
+import { generateAlphabet } from '../lib/alphabet';
 import { getCoincidence } from '../lib/coincidence';
 import { allWords } from '../lib/dictionary';
-import { generateAlphabet, vigDecrypt } from '../lib/vigenere';
+import { vigDecrypt } from '../lib/vigenere';
 
 console.log('---K1---')
 const k1 = `EMUFPHZLRFAXYUSDJKZLDKRNSHGNFIVJYQTQUXQBQVYUVLLTREVJYQTMKYRDMFD`;

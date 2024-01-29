@@ -1,6 +1,7 @@
 import { encryptedK4, ratePossibleK4Solution } from "../k4";
+import { generateAlphabet } from "../lib/alphabet";
 import { routedColumnarDecrypt, routedColumnarEncrypt } from "../lib/columnar-route";
-import { vigDecrypt, generateAlphabet, vigEncrypt } from "../lib/vigenere";
+import { vigDecrypt, vigEncrypt } from "../lib/vigenere";
 
 const results = [];
 

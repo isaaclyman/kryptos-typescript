@@ -1,8 +1,8 @@
 import { describe, it } from 'node:test';
 import { getCoincidence, hasHighCoincidence } from '../lib/coincidence';
-import { standardAlphabet } from '../lib/vigenere';
 import assert from 'node:assert';
 import { encryptedK4 } from '../k4';
+import { standardAlphabet } from '../lib/alphabet';
 
 describe('coincidence', () => {
   it('correctly measures the coincidence of a random distribution', () => {

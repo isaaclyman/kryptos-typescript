@@ -1,8 +1,8 @@
 import { encryptedK4 } from '../k4';
+import { generateAlphabet } from '../lib/alphabet';
 import { cDecrypt } from '../lib/caesar';
 import { allWords } from '../lib/dictionary';
 import { validate } from '../lib/validate';
-import { generateAlphabet } from '../lib/vigenere';
 
 console.log('STARTING WORDS', allWords.length);
 

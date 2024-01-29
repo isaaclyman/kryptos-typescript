@@ -1,7 +1,7 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert';
 import { addSimpleMathKey, subtractSimpleMathKey } from '../lib/math-substitution';
-import { generateAlphabet, standardAlphabet } from '../lib/vigenere';
+import { standardAlphabet, generateAlphabet } from '../lib/alphabet';
 
 describe('math-substitution', () => {
   it('encrypts AAA', () => {

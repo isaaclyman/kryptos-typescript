@@ -2,8 +2,9 @@
 // FLRVQQPRNGKSS > EASTNORTHEAST
 // NYPVTTMZFPK > BERLINCLOCK
 
+import { generateAlphabet } from "../lib/alphabet";
 import { getCoincidence } from "../lib/coincidence";
-import { generateAlphabet, vigDecrypt } from "../lib/vigenere";
+import { vigDecrypt } from "../lib/vigenere";
 
 // FLRVQQPRNGKSS + ? = EASTNORTHEAST
 // EASTNORTHEAST - FLRVQQPRNGKSS = ?

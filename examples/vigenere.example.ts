@@ -1,4 +1,5 @@
-import { standardAlphabet, vigDecrypt, vigEncrypt } from "../lib/vigenere";
+import { standardAlphabet } from "../lib/alphabet";
+import { vigDecrypt, vigEncrypt } from "../lib/vigenere";
 
 const sourceMessage = 'PROGRAMMINGISFUN';
 const key = 'EXCEPTFORJAVA';

@@ -1,7 +1,8 @@
 import { encryptedK4, ratePossibleK4Solution } from "../k4";
+import { generateAlphabet, standardAlphabet } from "../lib/alphabet";
 import { allCharCombinations } from "../lib/combinations";
 import { skipTest } from "../lib/skip";
-import { generateAlphabet, standardAlphabet, vigDecrypt } from "../lib/vigenere";
+import { vigDecrypt } from "../lib/vigenere";
 
 // It takes about 17 seconds to test a million combinations on my MacBook.
 // There are 8,031,810,176 possible seven letter words.

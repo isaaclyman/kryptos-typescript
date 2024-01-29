@@ -1,4 +1,5 @@
-import { generateAlphabet, vigDecrypt } from './lib/vigenere';
+import { generateAlphabet } from './lib/alphabet';
+import { vigDecrypt } from './lib/vigenere';
 
 const encrypted = `VFPJUDEEHZWETZYVGWHKKQETGFQJNCE
 GGWHKK?DQMCPFQZDQMMIAGPFXHQRLG
