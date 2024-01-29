@@ -6,32 +6,41 @@ import {
 } from '../lib/math-substitution';
 import { generateAlphabet, standardAlphabet } from '../lib/vigenere';
 
-const countingSet = Array(100).fill(null).map((_, ix) => ix + 1);
-messageForwardAndReverse(encryptedK4, countingSet, 'countingSet');
+const k4length = encryptedK4.length;
+
+const countingSet = Array(k4length).fill(null).map((_, ix) => ix + 1);
+tryAllKeyArrangements(encryptedK4, countingSet, 'countingSet');
 
 const naturalSet = [0, ...countingSet];
-messageForwardAndReverse(encryptedK4, naturalSet, 'naturalSet');
+tryAllKeyArrangements(encryptedK4, naturalSet, 'naturalSet');
 
 const berlinClock1 = [
   5, 10, 15, 20, 1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 1, 2, 3,
   4,
 ];
-messageForwardAndReverse(encryptedK4, berlinClock1, 'berlinClock1');
+tryAllKeyArrangements(encryptedK4, berlinClock1, 'berlinClock1');
 
 const berlinClock2 = [1, ...berlinClock1];
-messageForwardAndReverse(encryptedK4, berlinClock2, 'berlinClock2');
+tryAllKeyArrangements(encryptedK4, berlinClock2, 'berlinClock2');
 
 const berlinClock3 = [4, 4, 11, 4];
-messageForwardAndReverse(encryptedK4, berlinClock3, 'berlinClock3');
+tryAllKeyArrangements(encryptedK4, berlinClock3, 'berlinClock3');
 
 const berlinClock4 = [1, ...berlinClock3];
-messageForwardAndReverse(encryptedK4, berlinClock4, 'berlinClock4');
+tryAllKeyArrangements(encryptedK4, berlinClock4, 'berlinClock4');
 
 const powersOfFive = countingSet.map(val => 5 ** (val % 24));
-messageForwardAndReverse(encryptedK4, powersOfFive, 'powersOfFive');
+tryAllKeyArrangements(encryptedK4, powersOfFive, 'powersOfFive');
 
 const powersOfFive2 = naturalSet.map(val => 5 ** (val % 24));
-messageForwardAndReverse(encryptedK4, powersOfFive2, 'powersOfFive2');
+tryAllKeyArrangements(encryptedK4, powersOfFive2, 'powersOfFive2');
+
+function tryAllKeyArrangements(message: string, key: number[], description: string) {
+  for (let increment = 0; increment < key.length; increment++) {
+    const newKey = key.map((_, ix) => key[((ix + increment) % key.length)]);
+    messageForwardAndReverse(message, newKey, description);
+  }
+}
 
 function messageForwardAndReverse(
   message: string,
@@ -67,19 +76,19 @@ function bothSimpleMathVariants(
   description: string
 ) {
   const added = addSimpleMathKey(message, key, alphabet);
-  validate(added, `${description} | added`);
+  validate(added, key, `${description} | added`);
   const subtracted = subtractSimpleMathKey(message, key, alphabet);
-  validate(subtracted, `${description} | subtracted`);
+  validate(subtracted, key, `${description} | subtracted`);
 }
 
-function validate(result: string, description: string) {
+function validate(result: string, key: number[], description: string) {
   const rating = ratePossibleK4Solution(result);
   if (rating > 2) {
-    console.log({ description, rating, result });
+    console.log({ description, key, rating, result });
   }
 
   const coincidence = getCoincidence(result);
   if (coincidence > 0.06) {
-    console.log({ description, coincidence, result });
+    console.log({ description, key, coincidence, result });
   }
 }
