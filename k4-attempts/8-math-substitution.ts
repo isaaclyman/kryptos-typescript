@@ -29,11 +29,31 @@ tryAllKeyArrangements(encryptedK4, berlinClock3, 'berlinClock3');
 const berlinClock4 = [1, ...berlinClock3];
 tryAllKeyArrangements(encryptedK4, berlinClock4, 'berlinClock4');
 
-const powersOfFive = countingSet.map(val => 5 ** (val % 24));
+const berlinClock5 = [1, 2, 3, 4];
+tryAllKeyArrangements(encryptedK4, berlinClock5, 'berlinClock5');
+
+const berlinClock6 = [0, ...berlinClock5];
+tryAllKeyArrangements(encryptedK4, berlinClock6, 'berlinClock6');
+
+const berlinClock7 = [1, 2, 3, 4, 5];
+tryAllKeyArrangements(encryptedK4, berlinClock7, 'berlinClock7');
+
+const powersOfFive = countingSet.map(val => 5 ** (val % 5));
 tryAllKeyArrangements(encryptedK4, powersOfFive, 'powersOfFive');
 
-const powersOfFive2 = naturalSet.map(val => 5 ** (val % 24));
+const powersOfFive2 = naturalSet.map(val => 5 ** (val % 5));
 tryAllKeyArrangements(encryptedK4, powersOfFive2, 'powersOfFive2');
+
+const powersOfFive3 = naturalSet.map(val => (val % 5) ** 5);
+tryAllKeyArrangements(encryptedK4, powersOfFive3, 'powersOfFive3');
+
+for (let multiple = 2; multiple <= 24; multiple++) {
+  const multiplesSet1 = countingSet.map(val => val * multiple);
+  tryAllKeyArrangements(encryptedK4, multiplesSet1, 'multiplesOf' + multiple + 'Counting')
+  const multiplesSet2 = naturalSet.map(val => val * multiple);
+  tryAllKeyArrangements(encryptedK4, multiplesSet2, 'multiplesOf' + multiple + 'Natural')
+
+}
 
 function tryAllKeyArrangements(message: string, key: number[], description: string) {
   for (let increment = 0; increment < key.length; increment++) {
