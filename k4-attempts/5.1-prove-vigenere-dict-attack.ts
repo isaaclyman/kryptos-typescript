@@ -1,4 +1,4 @@
-import { getCoincidence, hasHighCoincidence } from '../lib/coincidence';
+import { getCoincidence } from '../lib/coincidence';
 import { allWords } from '../lib/dictionary';
 import { generateAlphabet, vigDecrypt } from '../lib/vigenere';
 
