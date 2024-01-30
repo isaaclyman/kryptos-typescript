@@ -49,6 +49,21 @@ tryAllKeyArrangements(encryptedK4, powersOfFive2, 'powersOfFive2');
 const powersOfFive3 = naturalSet.map((val) => (val % 5) ** 5);
 tryAllKeyArrangements(encryptedK4, powersOfFive3, 'powersOfFive3');
 
+const knownSequence1 = [25, 9, 14, 1, 25, 4, 23, 15, 20, 23, 0, 10, 23];
+tryAllKeyArrangements(encryptedK4, knownSequence1, 'knownSequence1');
+
+const knownSequence2 = [25, 15, 1, 24, 23, 24, 2, 2, 20, 24, 16, 0, 1];
+tryAllKeyArrangements(encryptedK4, knownSequence2, 'knownSequence2');
+
+const knownSequence3 = [8, 2, 23, 20, 4, 8, 11, 12, 13, 18, 10];
+tryAllKeyArrangements(encryptedK4, knownSequence3, 'knownSequence3');
+
+const knownSequence4 = [14, 6, 2, 16, 15, 20, 16, 12, 9, 13, 0];
+tryAllKeyArrangements(encryptedK4, knownSequence4, 'knownSequence4');
+
+const stepSequence1 = [0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3];
+tryAllKeyArrangements(encryptedK4, stepSequence1, 'stepSequence1')
+
 for (let multiple = 2; multiple <= 24; multiple++) {
   const multiplesSet1 = countingSet.map((val) => val * multiple);
   tryAllKeyArrangements(

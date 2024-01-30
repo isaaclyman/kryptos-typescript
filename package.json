@@ -8,7 +8,7 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "node --test --require ts-node/register ./test/*.test.ts"
+    "test": "node --test --require ts-node/register ./test/*.test.*ts"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
   "homepage": "https://github.com/isaaclyman/kryptos-typescript#readme",
   "devDependencies": {
     "@types/node": "^20.11.7",
+    "mathjs": "^12.3.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   }
